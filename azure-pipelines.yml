@@ -39,9 +39,12 @@ stages:
         repository: $(imageName)
         tags: |
           $(tag)
-    - task: ArtifactoryDocker@1
+    - task: ECRPushImage@1
       inputs:
-        command: 'push'
-        artifactoryService: 'Art_SVC_conn'
-        targetRepo: 'docker-local'
-        imageName: '$(imageName):$(tag)'
+        awsCredentials: 'AWS_ECR'
+        regionName: 'us-west-2'
+        imageSource: 'imageid'
+        sourceImageId: '$(imageName):$(tag)'
+        repositoryName: '$(repoName)'
+        pushTag: '$(tag)'
+        forceDockerNamingConventions: true
