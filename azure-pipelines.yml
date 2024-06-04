@@ -5,11 +5,15 @@
 trigger:
 - main
 
+pool: 
+   name: 'demo-agent'
+   vmImage: 'ubuntu-demo'
+
 resources:
 - repo: self
 
 variables:
-  tag: '$(Build.BuildId)'
+  - group: dev
 
 stages:
 - stage: Build
