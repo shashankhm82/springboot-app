@@ -2,12 +2,12 @@
 # Build a Docker image
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
-trigger:
-- main
+trigger: none
+# - main
 
-pool: 
-   name: 'demo-agent'
-   vmImage: 'ubuntu-demo'
+pool: demo-agent
+  #  name: 'demo-agent'
+  #  vmImage: 'ubuntu-demo'
 
 resources:
 - repo: self
