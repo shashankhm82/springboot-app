@@ -13,7 +13,7 @@ resources:
 - repo: self
 
 variables:
-  - group: dev
+  tag : '$(Build.BuildId)'
 
 stages:
 - stage: Build
